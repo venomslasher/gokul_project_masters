@@ -41,7 +41,7 @@ double Q2(double pux,double puy, double puz, double theta)
 
 }
 
-void tut2(){
+void energy_calc(){
 
 	TFile *f = new TFile("ABC.root","read");
 	TFile *outfile = new TFile("EQm.root", "recreate");
