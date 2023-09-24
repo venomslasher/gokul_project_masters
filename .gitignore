@@ -1,5 +1,5 @@
 *.csv
 ABC
 
-//*.root
+*.root
 //.csv
