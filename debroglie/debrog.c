@@ -1,4 +1,4 @@
-
+//Function that will calculate and plot debrogle wavelength
 void debrog(){
 
 	TFile *f = new TFile("ABC.root","read");
@@ -13,6 +13,7 @@ void debrog(){
 		
 	int bin_x = 100;
 	
+	//initialising 1D hitogram
 	TH1D* hist = new TH1D("#lambda", "#lambda", bin_x,  0,1);
 	
 	for(int i =0; i<entries;i++){

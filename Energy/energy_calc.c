@@ -1,13 +1,14 @@
 
+//Function to calculate the energy of the neutrino 
 double E(double pux,double puy, double puz,double theta)
 {
 	
-	double mn= 939.56542052;
-	double mp= 938.27208816 ;
-	double mu=105.6583755;
+	double mn= 939.56542052;//mass of neutron
+	double mp= 938.27208816 ;//mass of proton
+	double mu=105.6583755;//mass of muon
 	theta = theta*22.0/(7.0*180.0);
 	double cost = TMath::Cos(theta);
-	double Eb = 34.0;
+	double Eb = 34.0; // binding energy of proton-carbon nucleus
 	double nume, deno, mp2,mn2,mu2;
 	mp2 = TMath::Power(mp,2.0);
 	mn2 = TMath::Power(mn,2.0);
@@ -19,16 +20,16 @@ double E(double pux,double puy, double puz,double theta)
 
 }
 
-
+//Function to calculate the q-square value 
 double Q2(double pux,double puy, double puz, double theta)
 {
 	
-	double mn= 939.56542052;
-	double mp= 938.27208816 ;
-	double mu=105.6583755;
+	double mn= 939.56542052;//mass of neutron
+	double mp= 938.27208816 ;//mass of proton
+	double mu=105.6583755;//mass of muon
 	theta = theta*22.0/(7.0*180.0);
 	double cost = TMath::Cos(theta);
-	double Eb = 34.0;
+	double Eb = 34.0; // binding energy of proton-carbon nucleus
 	double nume, deno, mp2,mn2,mu2;
 	mp2 = TMath::Power(mp,2.0);
 	mn2 = TMath::Power(mn,2.0);
@@ -41,13 +42,15 @@ double Q2(double pux,double puy, double puz, double theta)
 
 }
 
+
+//function that handles the reading of data entries and calculate the energy of reacting neutrino
 void energy_calc(){
 
-	TFile *f = new TFile("ABC.root","read");
-	TFile *outfile = new TFile("EQm.root", "recreate");
+	TFile *f = new TFile("ABC.root","read");  //reading the root file named 'ABC.root'
+	TFile *outfile = new TFile("EQm.root", "recreate"); //creating the root file named 'EQm.root' to store the calculated values
 	
 	TTree* tree = (TTree*) f->Get("ABCTree");
-	TTree* tree2 = new TTree("mutree", "mutree");
+	TTree* tree2 = new TTree("mutree", "mutree");//tree that will store the values
 	
 	int entries = tree ->GetEntries();
 	
@@ -61,7 +64,7 @@ void energy_calc(){
 	tree2 -> Branch("Eqccg", &Eqccg, "Eqccg/D");
 	tree2 -> Branch("q2ccg", &q2ccg, "q2ccg/D");
 	
-	
+	//for loop to iterate through all entries of the tree
 	for(int i =0; i<entries;i++)
 	{	
 		tree->GetEntry(i);
