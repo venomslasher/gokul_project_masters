@@ -90,9 +90,9 @@ void plotp(){
 	histpz ->GetYaxis()->SetTitle("Relative frequency");
 	
 	//area normalising
-	histpx->Scale(1. / histx->Integral(), "width");
-	histpy->Scale(1. / histy->Integral(), "width");
-	histpz->Scale(1. / histz->Integral(), "width");
+	histpx->Scale(1. / histpx->Integral(), "width");
+	histpy->Scale(1. / histpy->Integral(), "width");
+	histpz->Scale(1. / histpz->Integral(), "width");
 	//plot labeling for proton momentum components ends here.
 
 	//plot labeling for neutrino momentum components starts here.
@@ -106,9 +106,9 @@ void plotp(){
 
 
 	//area normalising
-	histnx->Scale(1. / histx->Integral(), "width");
-	histny->Scale(1. / histy->Integral(), "width");
-	histnz->Scale(1. / histz->Integral(), "width");
+	histnx->Scale(1. / histnx->Integral(), "width");
+	histny->Scale(1. / histny->Integral(), "width");
+	histnz->Scale(1. / histnz->Integral(), "width");
 	//plot labeling for neutrino momentum components ends here.
 
 	//plot labeling for muon momentum components starts here.
@@ -122,9 +122,9 @@ void plotp(){
 
 
 	//area normalising
-	histmx->Scale(1. / histx->Integral(), "width");
-	histmy->Scale(1. / histy->Integral(), "width");
-	histmz->Scale(1. / histz->Integral(), "width");
+	histmx->Scale(1. / histmx->Integral(), "width");
+	histmy->Scale(1. / histmy->Integral(), "width");
+	histmz->Scale(1. / histmz->Integral(), "width");
 	//plot labeling for muon momentum components ends here
 	
 	TCanvas* cpx = new TCanvas("Px");
